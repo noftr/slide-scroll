@@ -27,6 +27,7 @@ function pointer_move() {
        first_click = true;
    };
    touch_down = e.touches[0].clientY;
+};
   console.log('произошло касание');
 }
 
