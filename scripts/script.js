@@ -3,6 +3,7 @@
 let touch_up = 0;
 let touch_down = 0;
 let touch_path = 0;
+<<<<<<< HEAD
 
 
 
@@ -67,3 +68,5 @@ function onWheel(event) {
 
 
 }
+=======
+>>>>>>> fdb3f13ae1b911951414b86bfb061354d4196a88
