@@ -24,7 +24,14 @@ function pointer_move(e) {
     coord_current = e.touches[0].clientY;
     touch_path = coord_current - coord_last;
     coord_last = e.touches[0].clientY;
-    console.log(touch_path);
+    if (touch_path<0) {
+        console.log("скролю вниз")
+};
+   if (touch_path>0) {
+        console.log("скролю вверх")
+};
+
+    //console.log(touch_path);
 }
 
 function onWheel() {
