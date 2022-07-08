@@ -25,7 +25,7 @@ function pointer_move(e) {
 
     if (touch_once == true) {
         path_direction += touch_path;
-        if (check_five > 9) {
+        if (check_five > 4) {
             check_five = 0;
             if (path_direction > 0) {
                 console.log(path_direction);
