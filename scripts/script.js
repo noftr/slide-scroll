@@ -1,5 +1,5 @@
 
-
+let path_direction = 0;
 let check_five = 0;
 
 
@@ -19,19 +19,27 @@ function pointer_move(e) {
     coord_current = e.touches[0].clientY;
     touch_path = coord_current - coord_last;
     coord_last = e.touches[0].clientY;
+
     check_five += 1;
-    console.log(check_five);
-    if (check_five > 9) {
-        if (touch_once == true) {
-            if (touch_path > 0) {
-                if (anchor_num >= 1) {
-                    anchor_num -= 1;
+
+
+    if (touch_once == true) {
+        path_direction += touch_path;
+        if (check_five > 19) {
+            check_five = 0;
+            if (path_direction > 0) {
+                console.log(path_direction);
+                path_direction = 0;
+                if (anchor_num < 3) {
+                    anchor_num += 1;
                     anchor1 = document.querySelectorAll(".anchor")[anchor_num];
                     anchor1.scrollIntoView();
                 }
             } else {
-                if (anchor_num < 3) {
-                    anchor_num +=1;
+                console.log(path_direction);
+                path_direction = 0;
+                if (anchor_num >= 1) {
+                    anchor_num -=1;
                     anchor1 = document.querySelectorAll(".anchor")[anchor_num];
                     anchor1.scrollIntoView();
                 }
@@ -42,7 +50,6 @@ function pointer_move(e) {
                 touch_once = true;
             }, 400)
         }
-        check_five = 0;
     }
 
 };
