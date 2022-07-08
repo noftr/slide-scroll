@@ -1,5 +1,8 @@
 
 
+let check_five = 0;
+
+
 let touch_path = 0;
 let coord_current = 0;
 let coord_last = 0;
@@ -16,33 +19,32 @@ function pointer_move(e) {
     coord_current = e.touches[0].clientY;
     touch_path = coord_current - coord_last;
     coord_last = e.touches[0].clientY;
-    if (touch_once == true) {
-        if (touch_path>0) {
-            if (anchor_num<3) {
+    check_five += 1;
+    console.log(check_five);
+    if (check_five > 9) {
+        if (touch_once == true) {
+            if (touch_path > 0) {
+                if (anchor_num >= 1) {
+                    anchor_num -= 1;
+                    anchor1 = document.querySelectorAll(".anchor")[anchor_num];
+                    anchor1.scrollIntoView();
+                }
+            } else {
+                if (anchor_num < 3) {
+                    anchor_num +=1;
+                    anchor1 = document.querySelectorAll(".anchor")[anchor_num];
+                    anchor1.scrollIntoView();
+                }
+            };
+            touch_once = false;
 
-                anchor_num +=1;
-                anchor1 = document.querySelectorAll(".anchor")[anchor_num];
-                anchor1.scrollIntoView();
-                console.log("мы сейчас на"+" "+(anchor_num+1)+" "+"секции");
-
-            }
-        } else {
-            if (anchor_num>=1) {
-
-                anchor_num -=1;
-                anchor1 = document.querySelectorAll(".anchor")[anchor_num];
-                anchor1.scrollIntoView();
-                console.log("мы сейчас на"+" "+(anchor_num+1)+" "+"секции");
-
-            }
-        };
-        touch_once = false;
-
-        setTimeout(function() {
-            touch_once = true;
-        }, 400)
-
+            setTimeout(function() {
+                touch_once = true;
+            }, 400)
+        }
+        check_five = 0;
     }
+
 };
 
 //section3.scrollIntoView();
